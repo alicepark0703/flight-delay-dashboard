@@ -1,0 +1,6 @@
+.vscode/
+models/
+data/
+.log
+.DS_Store
+.ipynb_checkpoints/
