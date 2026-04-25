@@ -1,6 +1,54 @@
+# Environment & Secrets
+.env
+.venv/
+venv/
+env/
+bin/
+lib/
+develop-eggs/
+dist/
+eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.tox/
+
+# Frontend
+node_modules/
+app/node_modules/
+app/dist/
+app/dist-ssr/
+*.local
+
+# IDE & OS
 .vscode/
-models/
-data/
-.log
+.idea/
 .DS_Store
-.ipynb_checkpoints/ 
+Thumbs.db
+*.swp
+*.swo
+
+# Data & Research
+data/
+models/
+.ipynb_checkpoints/
+*.log
+
+# Project Specific
+*.parquet
