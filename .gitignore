@@ -54,6 +54,5 @@ models/
 *.parquet
 
 
-# Design Documents
-DESIGN.md
-DESIGN.html
+# Design Documents and studies
+docs/

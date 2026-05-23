@@ -66,3 +66,22 @@ FEATURE_COLS = [
     "distance_bin",
     "Reporting_Airline_mean_delay", "route_mean_delay", "dep_hour_mean_delay",
 ]
+
+def build_features(
+        df: pd.DataFrame,
+        encoders: dict | None = None,
+        y: pd.Series | None = None,
+) -> tuple[pd.DataFrame, dict]:
+    """
+    Full pipeline of passing y and encoders = None on the training data 
+    then, passsing fitted encoders and y=None on inference data.
+    """
+    df = add_temporal_features(df)
+    df = add_route_feature(df)
+    df = add_distance_bin(df)
+    if encoders is None:
+        if y is None:
+            raise ValueError("y must be provided when fitting encoders (training mode)")
+        encoders = fit_target_encoders(df, y)
+    df = apply_target_encoders(df, encoders)
+    return df[FEATURE_COLS], encoders
