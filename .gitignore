@@ -52,3 +52,8 @@ models/
 
 # Project Specific
 *.parquet
+
+
+# Design Documents
+DESIGN.md
+DESIGN.html
