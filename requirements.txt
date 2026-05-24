@@ -1,5 +1,7 @@
 pandas
 numpy
+meteostat
+airportsdata
 scipy
 matplotlib
 seaborn
