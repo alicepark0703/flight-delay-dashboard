@@ -44,9 +44,11 @@ Thumbs.db
 *.swp
 *.swo
 
-# Data & Research
-data/
-models/
+# Generated datasets and model artifacts (keep source directories trackable)
+/data/*
+!/data/README.md
+/models/
+/backend/models/
 .ipynb_checkpoints/
 *.log
 
@@ -54,5 +56,5 @@ models/
 *.parquet
 
 
-# Design Documents and studies
-docs/
+# Project documentation is intentionally tracked.
+/docs
