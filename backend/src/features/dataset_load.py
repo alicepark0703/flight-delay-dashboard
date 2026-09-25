@@ -1,21 +1,22 @@
 import os
 import duckdb as db
-import cursor as cr
+
+# Resolve paths from the project root so the script works from any directory
+base_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(base_dir, "..", "..", ".."))
+os.chdir(project_root)
+
 con = db.connect()
 
-# Get the directory of the current script to build relative paths
-base_dir = os.path.dirname(os.path.abspath(__file__))
-
 # using the sql file to clean the dataset
-sql_path = os.path.join(base_dir, "..", "..", "sql", "flights_clean.sql")
+sql_path = os.path.join("backend", "sql", "flights_clean.sql")
 with open(sql_path, "r") as f:
     query = f.read()
-db.query(query)
 con.execute(query)
 
 # saving the cleaned dataset to parquet file
 con.execute("""
 COPY flights_clean
-TO '../../../data/flights_clean.parquet'
+TO 'data/flights_clean.parquet'
 (FORMAT PARQUET)
 """)

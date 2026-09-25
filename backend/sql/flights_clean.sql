@@ -8,7 +8,7 @@ SELECT
     DepDelay, -- target (avoid other features as they happen after the delay occurs)
     Cancelled, CancellationCode, Diverted, -- filter out cancelled flights
     Distance
-FROM 'D:\Documents\Portfolio\flight-delay-dashboard\data\us_flights_2024_all.parquet'
+FROM 'data/us_flights_2024_all.parquet'
 WHERE Cancelled = 0
 AND Diverted = 0
 AND DepDelay IS NOT NULL
